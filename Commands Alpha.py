@@ -20,14 +20,8 @@ async def on_ready():
 @client.event
 async def on_ready():
     await client.change_presence(game=discord.Game(name='-help'))
-	
-	
-	
-@client.command(pass_context=True)
-async def ping(ctx):
-    await client.say(":ping_pong: Pong!")
-	
-	
+
+		
 
 @client.command(pass_context=True, description='Shows the info of the mentioned user.')
 async def info(ctx, user: discord.Member):
@@ -116,9 +110,17 @@ async def choose(ctx,message):
 	x=message.split("/")
 	await client.say(":thinking:  |  I choose: "+ "**"+ random.choice(x) +"**!")
 
-		
 
-		
-		
-	
+
+@client.command(pass_context=True)
+async def ping(ctx):
+	channel = ctx.message.channel
+	t1 = time.perf_counter()
+	await client.send_typing(channel)
+	t2 = time.perf_counter()
+	embed=discord.Embed(title=None, description=':ping_pong: Pong! `{}miliseconds`'.format(round((t2-t1)*1000)), color=0x2874A6)
+	await client.say(embed=embed)
+
+
+
 client.run("NDMyNjA3OTE0NDMyMTM1MTY5.DawDKA.RZ9zUBcfPrPmbOYHhsFw3XdByR0")
