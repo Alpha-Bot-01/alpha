@@ -23,8 +23,42 @@ async def on_message(message):
 			await client.delete_message(message)
 		else:
 			await client.send_message(message.channel, "You do not have the permissions to use that command!")
+		
+		
+		
+
+	if message.content.upper().startswith('-RPS'):
+		a=message.content[5:]
+		answers = random.randint(1,3)
+		if message.content[5:] =="":
+			await client.send_message(message.channel, "Invalid, Choose rock/paper/scissors.")		
+		elif answers == 1 and 'rock' in a: #rock
+			await client.send_message(message.channel, "I choose rock. \n" + "It's a Draw.")
+		elif answers == 1 and 'paper' in a: #rock
+			await client.send_message(message.channel, "I choose rock. \n"+ "You Won.")	
+		elif answers == 1 and 'scissors' in a: #rock
+			await client.send_message(message.channel, "I choose rock. \n" + "You Lost.")
+			
+		elif answers == 2 and 'rock' in a: #paper
+			await client.send_message(message.channel, "I choose paper. \n" + "You Lost.")
+		elif answers == 2 and 'paper' in a: #paper
+			await client.send_message(message.channel, "I choose paper. \n" + "It's a Draw.")	
+		elif answers == 2 and 'scissors' in a: #paper
+			await client.send_message(message.channel, "I choose paper. \n" + "You Won.")
+			
+		elif answers == 3 and 'rock' in a: #scissors
+			await client.send_message(message.channel, "I choose scissors. \n" + "You Won.")
+		elif answers == 3 and 'paper' in a: #scissors
+			await client.send_message(message.channel, "I choose scissors. \n" + "You Lost.")	
+		elif answers == 3 and 'scissors' in a: #scissors
+			await client.send_message(message.channel, "I choose scissors. \n" + "It's a Draw")
+		
+		else:
+			await client.send_message(message.channel, "Invalid, choose rock/paper/scissors.")	
 			
 
+			
+			
 
 	if message.content.upper().startswith('-8BALL'):
 		if message.content[7:] =="":
