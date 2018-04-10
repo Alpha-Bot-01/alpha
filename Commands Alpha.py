@@ -14,8 +14,12 @@ client.remove_command('help')
 @client.event
 async def on_ready():
     print("Bot is ready!")
-	
-	
+    
+@client.event
+async def on_command_error(error, ctx):
+	if isinstance(error, commands.CommandOnCooldown):
+		await client.send_message(ctx.message.channel, content='This command is on a %.2fsec cooldown.' % error.retry_after)
+	raise error 		
 	
 @client.event
 async def on_ready():
@@ -60,13 +64,13 @@ async def stats(ctx):
 	
 @client.command(pass_context=True)
 async def avatar(ctx, user: discord.Member):
-	embed = discord.Embed(description="Avatar", color=0x00BFFF)
-	embed.set_image(url=user.avatar_url)
-	await client.say(embed=embed)
+		url=user.avatar_url
+		await client.say(url)
 	
 	
 	
 @client.command(pass_context=True)
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def multi(ctx, a,b):
 	c=int(a) * int(b)
 	s=str(c)
@@ -75,6 +79,7 @@ async def multi(ctx, a,b):
 	
 	
 @client.command(pass_context=True)
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def sub(ctx, a,b):
 	c=int(a) - int(b)
 	s=str(c)
@@ -83,6 +88,7 @@ async def sub(ctx, a,b):
 	
 	
 @client.command(pass_context=True)
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def add(ctx, a,b):
 	c=int(a) + int(b)
 	s=str(c)
@@ -91,6 +97,7 @@ async def add(ctx, a,b):
 	
 	
 @client.command(pass_context=True)
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def div(ctx, a,b):
 	c=int(a) / int(b)
 	s=str(c)
@@ -114,12 +121,23 @@ async def choose(ctx,message):
 
 
 @client.command(pass_context=True)
+@commands.cooldown(1, 5, commands.BucketType.user)
 async def ping(ctx):
 	channel = ctx.message.channel
 	t1 = time.perf_counter()
 	await client.send_typing(channel)
 	t2 = time.perf_counter()
 	embed=discord.Embed(title=None, description=':ping_pong: Pong! `{}miliseconds`'.format(round((t2-t1)*1000)), color=0x2874A6)
+	await client.say(embed=embed)
+
+@client.command(pass_context=True)
+@commands.cooldown(1, 30, commands.BucketType.user)
+async def meme(ctx):
+	list=['http://i0.kym-cdn.com/photos/images/facebook/001/217/729/f9a.jpg','http://mojly.com/wp-content/uploads/2017/10/Hilarious-Meme-humor-pictures-images-fun-thug-life-funny-meme.jpg','http://cdn.ebaumsworld.com/mediaFiles/picture/2407036/84822802.jpg','http://images.memes.com/meme/29838.jpg','http://images.memes.com/meme/9076.jpg','http://images.memes.com/meme/14834.jpg','http://images.memes.com/meme/10828.jpg','http://images.memes.com/meme/25719.jpg','http://images.memes.com/meme/20837.jpg','http://images.memes.com/meme/27526.jpg','https://i.redd.it/3n3lixsq5vq01.jpg','https://i.redd.it/xovz0z5mewq01.jpg','https://i.redd.it/kqsotjgj0yq01.jpg','http://images.memes.com/meme/868122','http://images.memes.com/meme/1452777','http://images.memes.com/meme/19242.jpg','http://images.memes.com/meme/1111179']
+	secure_random = random.SystemRandom()
+	m=secure_random.choice(list)
+	embed = discord.Embed(description="Random Meme", color=0x00BFFF)
+	embed.set_image(url=m)
 	await client.say(embed=embed)
 
 
