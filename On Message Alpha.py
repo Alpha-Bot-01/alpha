@@ -104,15 +104,28 @@ async def on_message(message):
 		
 		
 
+	if message.content.upper().startswith('-FLIP'):
+		a=message.content[5:]
+		answers = random.randint(1,2)
+		if message.content[5:] =="":
+			await client.send_message(message.channel, "Invalid, Choose heads/tails")		
+		elif answers == 1 and 'heads' in a: #heads
+			await client.send_message(message.channel, ":regional_indicator_x: | Better luck next time...")
+		elif answers == 1 and 'tails' in a: #heads
+			await client.send_message(message.channel, ":ballot_box_with_check: | Nice guess!")	
+			
+		elif answers == 2 and 'tails' in a: #tails
+			await client.send_message(message.channel, ":regional_indicator_x: | Better luck next time...")
+		elif answers == 2 and 'heads' in a: #tails
+			await client.send_message(message.channel, ":ballot_box_with_check: | Nice guess!")	
 
+		else:
+			await client.send_message(message.channel, "Invalid, choose heads/tails")
 		
 		
-		
-		
-		
-		
-		
-		
+	if message.content.startswith('Hi'):
+		await client.send_message(message.channel, "Hello {0.author.mention}!".format(message))
+
 		
 
 		
