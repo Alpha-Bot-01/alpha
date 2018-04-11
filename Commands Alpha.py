@@ -56,8 +56,10 @@ async def about(ctx):
 	embed = discord.Embed(title="__About Alpha™__", description="© 2018 Alpha™ All Rights Reserved", color=0x00ff00)
 	embed.add_field(name="Original Creators", value="<@399567243744116738> & <@293447483818901504>")
 	embed.add_field(name="Co-Creator", value="<@331876823443177473>")
-	embed.add_field(name="Server count:", value=str(len(client.servers)))
-	embed.add_field(name="User count:", value=str(len(list(client.get_all_members()))))
+	embed.add_field(name="Server count", value=str(len(client.servers)))
+	embed.add_field(name="User count", value=str(len(list(client.get_all_members()))))
+	embed.add_field(name="Channel count",value=str(len(list(client.get_all_channels()))))
+	embed.add_field(name="API", value="Python")
 	embed.set_thumbnail(url='https://liquidat.files.wordpress.com/2014/02/ansible_logo_round.png')
 	await client.say(embed=embed)
 		
@@ -130,7 +132,7 @@ async def ping(ctx):
 	t1 = time.perf_counter()
 	await client.send_typing(channel)
 	t2 = time.perf_counter()
-	embed=discord.Embed(title=None, description=':ping_pong: Pong! `{}miliseconds`'.format(round((t2-t1)*1000)), color=0x2874A6)
+	embed=discord.Embed(title=None, description=':ping_pong: Pong! `{}ms`'.format(round((t2-t1)*1000)), color=0x2874A6)
 	await client.say(embed=embed)
 
 @client.command(pass_context=True)
