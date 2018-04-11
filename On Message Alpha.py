@@ -36,25 +36,25 @@ async def on_message(message):
 		if message.content[5:] =="":
 			await client.send_message(message.channel, "Invalid, Choose rock/paper/scissors.")		
 		elif answers == 1 and 'rock' in a: #rock
-			await client.send_message(message.channel, "💎| I choose *rock* too! It's a draaaw!")
+			await client.send_message(message.channel, "💎 | I choose *rock* too! It's a draaaw!")
 		elif answers == 1 and 'paper' in a: #rock
-			await client.send_message(message.channel, "💎| I choose *rock*! You won and I lost...")	
+			await client.send_message(message.channel, "💎 | I choose *rock*! You won and I lost...")	
 		elif answers == 1 and 'scissors' in a: #rock
-			await client.send_message(message.channel, "💎| I choose *rock*! I won and you lost...")
+			await client.send_message(message.channel, "💎 | I choose *rock*! I won and you lost...")
 			
 		elif answers == 2 and 'rock' in a: #paper
-			await client.send_message(message.channel, "📰| I choose *paper*! I won and you lost...")
+			await client.send_message(message.channel, "📰 | I choose *paper*! I won and you lost...")
 		elif answers == 2 and 'paper' in a: #paper
-			await client.send_message(message.channel, "📰| I choose *paper* too! It's a draaaw!")	
+			await client.send_message(message.channel, "📰 | I choose *paper* too! It's a draaaw!")	
 		elif answers == 2 and 'scissors' in a: #paper
-			await client.send_message(message.channel, "📰| I choose *paper*! You won and I lost...")
+			await client.send_message(message.channel, "📰 | I choose *paper*! You won and I lost...")
 			
 		elif answers == 3 and 'rock' in a: #scissors
-			await client.send_message(message.channel, "✂| I choose *scissors*! You won and I lost...")
+			await client.send_message(message.channel, "✂ | I choose *scissors*! You won and I lost...")
 		elif answers == 3 and 'paper' in a: #scissors
-			await client.send_message(message.channel, "✂| I choose *scissors*! I won and you lost...")	
+			await client.send_message(message.channel, "✂ | I choose *scissors*! I won and you lost...")	
 		elif answers == 3 and 'scissors' in a: #scissors
-			await client.send_message(message.channel, "✂|I choose *scissors* too! It's a draaaw!")
+			await client.send_message(message.channel, "✂ |I choose *scissors* too! It's a draaaw!")
 		
 		else:
 			await client.send_message(message.channel, "Invalid, choose rock/paper/scissors.")	
