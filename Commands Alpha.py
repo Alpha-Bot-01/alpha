@@ -52,13 +52,15 @@ async def server(ctx):
 	
 	
 @client.command(pass_context=True)
-async def stats(ctx):
-    embed = discord.Embed(description="Alpha Bot Stats:", color=0x00ff00)
-    embed.add_field(name="Bot made by:", value="Trocir#1816 & Mes#1807")
-    embed.add_field(name="Bot ID:", value="396458108987244563")
-    embed.add_field(name="User count:", value=str(len(list(client.get_all_members()))))
-    embed.add_field(name="Server count:", value=str(len(client.servers)))
-    await client.say(embed=embed)		
+async def about(ctx):
+	embed = discord.Embed(title="__About Alpha™__", description="© 2018 Alpha™ All Rights Reserved", color=0x00ff00)
+	embed.add_field(name="Original Creators", value="<@399567243744116738> & <@293447483818901504>")
+	embed.add_field(name="Co-Creator", value="<@331876823443177473>")
+	embed.add_field(name="Server count:", value=str(len(client.servers)))
+	embed.add_field(name="User count:", value=str(len(list(client.get_all_members()))))
+	embed.set_thumbnail(url='https://liquidat.files.wordpress.com/2014/02/ansible_logo_round.png')
+	await client.say(embed=embed)
+		
 
 	
 	
@@ -131,7 +133,7 @@ async def ping(ctx):
 	await client.say(embed=embed)
 
 @client.command(pass_context=True)
-@commands.cooldown(1, 30, commands.BucketType.user)
+@commands.cooldown(1, 15, commands.BucketType.user)
 async def meme(ctx):
 	list=['http://i0.kym-cdn.com/photos/images/facebook/001/217/729/f9a.jpg','http://mojly.com/wp-content/uploads/2017/10/Hilarious-Meme-humor-pictures-images-fun-thug-life-funny-meme.jpg','http://cdn.ebaumsworld.com/mediaFiles/picture/2407036/84822802.jpg','http://images.memes.com/meme/29838.jpg','http://images.memes.com/meme/9076.jpg','http://images.memes.com/meme/14834.jpg','http://images.memes.com/meme/10828.jpg','http://images.memes.com/meme/25719.jpg','http://images.memes.com/meme/20837.jpg','http://images.memes.com/meme/27526.jpg','https://i.redd.it/3n3lixsq5vq01.jpg','https://i.redd.it/xovz0z5mewq01.jpg','https://i.redd.it/kqsotjgj0yq01.jpg','http://images.memes.com/meme/868122','http://images.memes.com/meme/1452777','http://images.memes.com/meme/19242.jpg','http://images.memes.com/meme/1111179','https://i.redd.it/cva9tb3r1wq01.png','https://imgur.com/2hlsj7Q','https://i.redd.it/f5l79kk17yq01.jpg','https://i.redd.it/ii9w5dpqyxq01.jpg','https://imgur.com/UH6DABG','https://i.redd.it/5zo511n7bxq01.jpg','https://i.redd.it/dxefclltiyq01.jpg']
 	secure_random = random.SystemRandom()
