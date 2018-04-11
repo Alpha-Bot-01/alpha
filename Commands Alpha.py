@@ -148,13 +148,16 @@ async def meme(ctx):
 
 @client.command()
 async def urban(*, word: str):
-	defi = urbandict.define(word)
-	definition = defi[0]['def']
-	example = defi[0]['example']
-	embed = discord.Embed(title=word, description=definition, color=0x0062f4)
-	embed.add_field(name="Example", value=example, inline=False)
-	embed.set_footer(text="Urban Dictionary")
-	await client.say(embed=embed)	
+	try:
+		defi = urbandict.define(word)
+		definition = defi[0]['def']
+		example = defi[0]['example']
+		embed = discord.Embed(title=word, description=definition, color=0x0062f4)
+		embed.add_field(name="Example", value=example, inline=False)
+		embed.set_footer(text="Urban Dictionary")
+		await client.say(embed=embed)
+	except:
+		await client.say("Error.")
 			
 
 
