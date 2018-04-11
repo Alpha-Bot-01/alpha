@@ -157,7 +157,7 @@ async def urban(*, word: str):
 		embed.set_footer(text="Urban Dictionary")
 		await client.say(embed=embed)
 	except:
-		await client.say("Error.")
+		await client.say(":exclamation: Error. No definition found.")
 			
 
 
