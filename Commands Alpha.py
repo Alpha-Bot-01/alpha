@@ -145,6 +145,16 @@ async def meme(ctx):
 	embed.set_image(url=m)
 	await client.say(embed=embed)
 
+@client.command()
+async def urban(*, word: str):
+	defi = urbandict.define(word)
+	definition = defi[0]['def']
+	example = defi[0]['example']
+	embed = discord.Embed(title=word, description=definition, color=0x0062f4)
+	embed.add_field(name="Example", value=example, inline=False)
+	embed.set_footer(text="Urban Dictionary")
+	await client.say(embed=embed)	
+			
 
 
 client.run("NDMyNjA3OTE0NDMyMTM1MTY5.DawDKA.RZ9zUBcfPrPmbOYHhsFw3XdByR0")
