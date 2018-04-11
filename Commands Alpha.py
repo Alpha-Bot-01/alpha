@@ -66,8 +66,9 @@ async def about(ctx):
 	
 @client.command(pass_context=True)
 async def avatar(ctx, user: discord.Member):
-		url=user.avatar_url
-		await client.say(url)
+	embed = discord.Embed(description="Avatar", color=0x00BFFF)
+	embed.set_image(url = user.avatar_url)
+	await client.say(embed=embed)	
 	
 	
 	
