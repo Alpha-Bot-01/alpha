@@ -225,6 +225,21 @@ async def on_message(message):
 		embed.set_thumbnail(url='http://pngimg.com/uploads/question_mark/question_mark_PNG130.png')
 		await client.send_message(message.channel, embed=embed)	
 		
+		
+	if message.content.startswith('-suggest'):
+		if message.content[9:] =="":
+			await client.send_message(message.channel, 'Error. Type in a suggestion.')
+		else:
+			await client.send_message(message.channel, ':white_check_mark: | {0.author.mention} Your sugestion has been sent succesfully.'.format(message))
+			args = message.content.split(" ")		
+			channel=client.get_channel('434056633392431104')
+			
+			embed = discord.Embed(title='', color=0xFFFF00)
+			embed.add_field(name="__Suggestion__", value= "```%s```" % (" ".join(args[1:])), inline=False)
+			embed.add_field(name="By", value="{0.author.mention}".format(message), inline=False)
+			embed.set_thumbnail(url='https://openclipart.org/image/2400px/svg_to_png/10515/yves-guillou-idea.png')
+			await client.send_message(channel, embed=embed)	
+		
 
 		
 client.run("NDMyNjA3OTE0NDMyMTM1MTY5.DawDKA.RZ9zUBcfPrPmbOYHhsFw3XdByR0")
