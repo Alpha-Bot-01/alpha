@@ -89,7 +89,7 @@ async def on_message(message):
 					break
     
 				elif answers == 4:
-					await client.send_message(message.channel, "🎱 | NO U.")
+					await client.send_message(message.channel, "🎱 | NO U!")
 					break
     
 				elif answers == 5:
@@ -137,7 +137,7 @@ async def on_message(message):
 			await client.send_message(message.channel, embed=embed)	
 
 		else:
-			await client.send_message(message.channel, "Invalid, choose heads/tails")
+			await client.send_message(message.channel, "Invalid, choose heads/tails.")
 		
 		
 		
@@ -146,12 +146,15 @@ async def on_message(message):
 		
 		
 	if message.content.upper().startswith('-WIKI'):
-		words = message.content.split()
-		important_words = words[1:]
-		embed = discord.Embed(title="", description="", color=0x00ff00)
-		embed.add_field(name="According to Wikipedia:", value=wiki_summary(important_words))
-		embed.set_thumbnail(url='https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Wikipedia_svg_logo.svg/2000px-Wikipedia_svg_logo.svg.png')
-		await client.send_message(message.channel, embed=embed)
+		try:
+			words = message.content.split()
+			important_words = words[1:]
+			embed = discord.Embed(title="", description="", color=0x00ff00)
+			embed.add_field(name="According to Wikipedia:", value=wiki_summary(important_words))
+			embed.set_thumbnail(url='https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Wikipedia_svg_logo.svg/2000px-Wikipedia_svg_logo.svg.png')
+			await client.send_message(message.channel, embed=embed)
+		except:
+			await client.send_message(message.channel, "Error. There were no results matching the query.")
 
 		
 
