@@ -156,6 +156,74 @@ async def on_message(message):
 		except:
 			await client.send_message(message.channel, "Error. There were no results matching the query.")
 
+			
+
+	if message.content.startswith('-help all'): 
+		embed = discord.Embed(title=':scroll: __All Commands__',description='Go to the Alpha™ support server to talk with the developers! \nLink: https://discord.gg/Z3UZPfH', color=0xFF8C00)
+		embed.add_field(name="-ping", value="Pings the bot.", inline=False)
+		embed.add_field(name="-add", value="Adds the two entered numbers. (Example = -add 10 50)", inline=False)
+		embed.add_field(name="-sub", value="Subtracts the two entered numbers. (Example = -sub 10 50)", inline=False)
+		embed.add_field(name="-multi", value="Multiplies the two entered numbers. (Example = -multi 10 50)", inline=False)
+		embed.add_field(name="-div", value="Divides the two entered numbers. (Example = -div 10 50) ", inline=False)
+		embed.add_field(name="-choose", value="Chooses one option from the list. (Example = -choose 1/2/3, do not put space between options.)", inline=False)
+		embed.add_field(name="-urban", value="Searches the word from Urban Dictionary. (Example = -urban <word>)", inline=False)
+		embed.add_field(name="-wiki", value="Displays results from Wikipedia. (Example = -wiki <word>) ", inline=False)
+		embed.add_field(name="-rps", value="To play rock/paper/scissors with the bot. (Example = -rps rock) ", inline=False)
+		embed.add_field(name="-flip", value="To filp a coin.  (Example = -flip heads) ", inline=False)
+		embed.add_field(name="-meme", value="Displays a random meme.", inline=False)
+		embed.add_field(name="-8ball", value="Answers your yes/no questions. (Example = -8ball <question>)", inline=False)
+		embed.add_field(name="-avatar", value=" Displays the avatar of the mentioned user. (Example = -avatar <user>)", inline=False)
+		embed.add_field(name="-info", value="Displays the mentioned users info. (Example = -info <user>)", inline=False)
+		embed.add_field(name="-server", value="Displays the server stats.", inline=False)
+		embed.add_field(name="-about", value="Displays the bot's info.", inline=False)
+		embed.set_thumbnail(url='http://pngimg.com/uploads/question_mark/question_mark_PNG130.png')
+		await client.send_message(message.channel, embed=embed)
+	
+	if message.content.startswith('-help') and message.content[5:] =="": 
+		embed = discord.Embed(title=":scroll:__Alpha™ Help__",description='Go to the Alpha™ support server to talk with the developers! \nLink: https://discord.gg/Z3UZPfH', color=0xFF8C00)
+		embed.add_field(name="-help all", value="Shows the help message for all the categories.", inline=False)
+		embed.add_field(name="-help general", value="Shows the general commands.", inline=False)
+		embed.add_field(name="-help games", value="Shows all commands related to the games.", inline=False)
+		embed.add_field(name="-help math", value="Shows all commands related to math.", inline=False)
+		embed.add_field(name="-help fun", value="Shows the commands for fun.", inline=False)
+		embed.set_thumbnail(url='http://pngimg.com/uploads/question_mark/question_mark_PNG130.png')
+		await client.send_message(message.channel, embed=embed)
+	
+	if message.content.startswith('-help games'): 
+		embed = discord.Embed(title=':scroll: __Games__',description='Go to the Alpha™ support server to talk with the developers! \nLink: https://discord.gg/Z3UZPfH', color=0xFF8C00)
+		embed.add_field(name="-rps", value="-rps = To play rock/paper/scissors with the bot. (Example = -rps rock)", inline=False)
+		embed.add_field(name="-flip", value="To filp a coin.  (Example = -flip heads)", inline=False)
+		embed.add_field(name="-8ball", value="Answers your yes/no questions. (Example = -8ball <question>)", inline=False)
+		embed.set_thumbnail(url='http://pngimg.com/uploads/question_mark/question_mark_PNG130.png')
+		await client.send_message(message.channel, embed=embed)	
+		
+	if message.content.startswith('-help general'): 
+		embed = discord.Embed(title=':scroll: __General__',description='Go to the Alpha™ support server to talk with the developers! \nLink: https://discord.gg/Z3UZPfH', color=0xFF8C00)
+		embed.add_field(name="-ping", value="Pings the bot.", inline=False)
+		embed.add_field(name="-avatar", value="Displays the avatar of the mentioned user. (Example = -avatar <user>)", inline=False)
+		embed.add_field(name="-about", value="Displays the bot's info.", inline=False)
+		embed.add_field(name="-info", value="Displays the mentioned users info. (Example = -info <user>)", inline=False)
+		embed.add_field(name="-server", value="Displays the server stats.", inline=False)
+		embed.set_thumbnail(url='http://pngimg.com/uploads/question_mark/question_mark_PNG130.png')
+		await client.send_message(message.channel, embed=embed)	
+		
+	if message.content.startswith('-help math'): 
+		embed = discord.Embed(title=':scroll: __Math__',description='Go to the Alpha™ support server to talk with the developers! \nLink: https://discord.gg/Z3UZPfH', color=0xFF8C00)
+		embed.add_field(name="-add", value="Adds the two entered numbers. (Example = -add 10 50)", inline=False)
+		embed.add_field(name="-sub", value="Subtracts the two entered numbers. (Example = -sub 10 50)", inline=False)
+		embed.add_field(name="-multi", value="Multiplies the two entered numbers. (Example = -multi 10 50)", inline=False)
+		embed.add_field(name="-div", value="Divides the two entered numbers. (Example = -div 10 50)", inline=False)
+		embed.set_thumbnail(url='http://pngimg.com/uploads/question_mark/question_mark_PNG130.png')
+		await client.send_message(message.channel, embed=embed)		
+		
+	if message.content.startswith('-help fun'): 
+		embed = discord.Embed(title=':scroll: __Fun__',description='Go to the Alpha™ support server to talk with the developers! \nLink: https://discord.gg/Z3UZPfH', color=0xFF8C00)
+		embed.add_field(name="-choose", value="Chooses one option from the list. (Example = -choose 1/2/3, do not put space between options.)", inline=False)
+		embed.add_field(name="-urban", value="Searches the word from Urban Dictionary. (Example = -urban <word>)", inline=False)
+		embed.add_field(name="-wiki", value="Displays results from Wikipedia. (Example = -wiki <word>)", inline=False)
+		embed.add_field(name="-meme", value="Displays a random meme.", inline=False)
+		embed.set_thumbnail(url='http://pngimg.com/uploads/question_mark/question_mark_PNG130.png')
+		await client.send_message(message.channel, embed=embed)	
 		
 
 		
