@@ -145,7 +145,7 @@ async def on_message(message):
 		await client.send_message(message.channel, "Hello {0.author.mention}!".format(message))
 		
 		
-	if message.content.upper().startswith('-DEFINE'):
+	if message.content.upper().startswith('-WIKI'):
 		words = message.content.split()
 		important_words = words[1:]
 		embed = discord.Embed(title="", description="", color=0x00ff00)
