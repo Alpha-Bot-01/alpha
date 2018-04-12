@@ -4,6 +4,8 @@ from discord.ext import commands
 import asyncio
 import time
 import random
+import wikipedia
+
 
 Client = discord.Client()
 client = commands.Bot(command_prefix = "-")
@@ -11,7 +13,11 @@ client = commands.Bot(command_prefix = "-")
 @client.event
 async def on_ready():
     print("Bot is ready!")
-				
+
+def wiki_summary(arg):
+	definition = wikipedia.summary(arg, sentences=1, chars=100, 
+	auto_suggest=True, redirect=True)
+	return definition	
 		
 		
 @client.event
@@ -134,8 +140,18 @@ async def on_message(message):
 			await client.send_message(message.channel, "Invalid, choose heads/tails")
 		
 		
+		
 	if message.content.startswith('Hi'):
 		await client.send_message(message.channel, "Hello {0.author.mention}!".format(message))
+		
+		
+	if message.content.upper().startswith('-DEFINE'):
+		words = message.content.split()
+		important_words = words[1:]
+		embed = discord.Embed(title="", description="", color=0x00ff00)
+		embed.add_field(name="According to Wikipedia:", value=wiki_summary(important_words))
+		embed.set_thumbnail(url='https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Wikipedia_svg_logo.svg/2000px-Wikipedia_svg_logo.svg.png')
+		await client.send_message(message.channel, embed=embed)
 
 		
 
