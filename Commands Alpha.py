@@ -26,7 +26,9 @@ async def on_command_error(error, ctx):
 async def on_ready():
     await client.change_presence(game=discord.Game(name='-help'))
 
-		
+@client.command(pass_context=True)
+async def invite(ctx):		
+	await client.say('https://discordapp.com/oauth2/authorize?&client_id=432607914432135169&scope=bot&permissions=0')
 
 @client.command(pass_context=True, description='Shows the info of the mentioned user.')
 async def info(ctx, user: discord.Member):
