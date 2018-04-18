@@ -246,12 +246,12 @@ async def on_message(message):
 	if message.content.upper().startswith('-KILL'):
 		a=message.content[6:]
 		if a == "":
-			await bot.send_message(message.channel, "Error.")
+			await client.send_message(message.channel, "Error.")
 		else:
 			list = ["{0.author.mention}".format(message) + " rips out " + a + "'s head and starts devouring on his brain cells." , "{0.author.mention}".format(message) + " decided to go to a dance party where his rival " + a + " was at. Later on, " + a +" said: 'I fucking hate this party' and " + "{0.author.mention}".format(message) + " shot him down in plain sight." , "{0.author.mention}".format(message) + " sent " + a+ "to the Sahara desert where " + a + " slowly starved to death. 🏜" , "{0.author.mention}".format(message) + " found The Hammer of Thor, which explains why " +a+" became toast. :hammer:" , "{0.author.mention}".format(message) + " found a cancer pill, which explains how "+a+ " got cancer. 💊" , "{0.author.mention}".format(message) + " had prayed many nights to Poseidon to kill his/her mortal enemy, but he/she never thought he would send a ravenous sharknado to eat "+a+ " and their family! (and a few neighbors too)" , "{0.author.mention}".format(message) + " drowned "+a+ " in a freezing bathtub. 💦" , "{0.author.mention}".format(message) + " ordered his pet to attack " + a + " 🐶" , "{0.author.mention}".format(message) +" Found a wand and casted 'EXPLODE' spell on " + a + " 💥" , "{0.author.mention}".format(message) + " pushed "+a+" into an active volcano. 🌋" , "{0.author.mention}".format(message) + " blindfolded " +a+" and took him/her to gym to kill him/her with a shotgun! 🔫" , "{0.author.mention}".format(message) +" has a particular proclivity for pyrotechnics and puts it to good use by strapping " +a+ " to a large rocket and sending him/her straight to the moon. 🚀 " , "{0.author.mention}".format(message) +" shot " +a+ " with a *lazer gun*, but killed himself/herself due to the backfire." , "{0.author.mention}".format(message)+" threw "+a+" off a bridge. 🌉" , "{0.author.mention}".format(message)+" helped "+ a +" fix a broken paintball gun, just to kill " + a + " with it."] 
 			secure_random = random.SystemRandom()
 			m=secure_random.choice(list)		
-			await bot.send_message(message.channel, m)			
+			await client.send_message(message.channel, m)			
 							
 		
 client.run("NDMyNjA3OTE0NDMyMTM1MTY5.DawDKA.RZ9zUBcfPrPmbOYHhsFw3XdByR0")
