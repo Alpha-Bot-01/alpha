@@ -6,6 +6,8 @@ import time
 import random
 import urbandict
 
+from datetime import datetime, timezone
+
 Client = discord.Client()
 client = commands.Bot(command_prefix = "-")
 client.remove_command('help')
@@ -26,6 +28,15 @@ async def on_command_error(error, ctx):
 @client.event
 async def on_ready():
     await client.change_presence(game=discord.Game(name='-help'))
+
+@client.command(pass_context=True)
+async def time(ctx):
+	utc_dt = datetime.now(timezone.utc)
+	p = utc_dt.strftime('     Time - %H:%M:%S | Date - %d/%m/%Y')
+	utc = str(p)
+	embed = discord.Embed(description="", color=0xFF0000)
+	embed.add_field(name=":stopwatch: **Current Local Time and Date in the United Kingdom**", value=utc)
+	await client.say(embed=embed)
 	
 
 @client.command(pass_context=True)
