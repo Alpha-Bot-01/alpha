@@ -8,6 +8,7 @@ import urbandict
 
 from datetime import datetime, timezone
 
+
 Client = discord.Client()
 client = commands.Bot(command_prefix = "-")
 client.remove_command('help')
@@ -28,6 +29,7 @@ async def on_command_error(error, ctx):
 @client.event
 async def on_ready():
     await client.change_presence(game=discord.Game(name='-help'))
+	
 
 @client.command(pass_context=True)
 async def time(ctx):
@@ -36,9 +38,9 @@ async def time(ctx):
 	utc = str(p)
 	embed = discord.Embed(description="", color=0xFF0000)
 	embed.add_field(name=":stopwatch: **Current Local Time and Date in the United Kingdom**", value=utc)
-	await client.say(embed=embed)
+	await client.say(embed=embed)	
 	
-
+	
 @client.command(pass_context=True)
 async def idk2(ctx):
 	embed = discord.Embed(title="Welcome to Infernal!", description="Infernal is launched in May of 2018 and was founded by Trocir. Infernal is led by Trocir. The clan does not use any extensions or mods and the players are popular for their legit and fair playstyle.", color=0xFF8C00)
@@ -112,9 +114,9 @@ async def trocir(ctx):
 async def microhype(ctx):
     embed = discord.Embed(title="__MicroHype's profile__ :flag_gb:", description="", color=0x2874A6)
     embed.add_field(name="Joined", value="7th May 2018")
-    embed.add_field(name="Goals", value="0")
+    embed.add_field(name="Goals", value="12")
     embed.add_field(name="Assists", value="0")
-    embed.add_field(name="Own Goals", value="0")
+    embed.add_field(name="Own Goals", value="2")
     embed.set_thumbnail(url="https://media.discordapp.net/attachments/443418563160571944/443423107215261697/Feed_Me_Bonk_League.png?width=462&height=420")
     await client.say(embed=embed)	
 	
@@ -145,7 +147,7 @@ async def avenger434(ctx):
 async def mhmmyeeesss(ctx):
     embed = discord.Embed(title="__MhmmYeeesss's profile__ :flag_us:", description="", color=0x2874A6)
     embed.add_field(name="Joined", value="7th May 2018")
-    embed.add_field(name="Goals", value="0")
+    embed.add_field(name="Goals", value="21")
     embed.add_field(name="Assists", value="0")
     embed.add_field(name="Own Goals", value="0")
     embed.set_thumbnail(url="https://media.discordapp.net/attachments/443418563160571944/443423107215261697/Feed_Me_Bonk_League.png?width=462&height=420")
@@ -156,9 +158,9 @@ async def mhmmyeeesss(ctx):
 async def acquah(ctx):
     embed = discord.Embed(title="__Acquah's profile__ :flag_it:", description="", color=0x2874A6)
     embed.add_field(name="Joined", value="7th May 2018")
-    embed.add_field(name="Goals", value="0")
+    embed.add_field(name="Goals", value="14")
     embed.add_field(name="Assists", value="0")
-    embed.add_field(name="Own Goals", value="0")
+    embed.add_field(name="Own Goals", value="3")
     embed.set_thumbnail(url="https://media.discordapp.net/attachments/443418563160571944/443423107215261697/Feed_Me_Bonk_League.png?width=462&height=420")
     await client.say(embed=embed)	
 	
@@ -223,9 +225,9 @@ async def nasean79(ctx):
 async def records(ctx):
     embed = discord.Embed(title="__Feed Me Records__", description="Our Football Records", color=0x2874A6)
     embed.add_field(name="Biggest Win", value="Team 0-0 Team")
-    embed.add_field(name="Most Goals in a match", value="Player - 0", inline = False)
+    embed.add_field(name="Most Goals in a match", value="MicroHype - 8", inline = False)
     embed.add_field(name="Most Assists in a match", value="Player - 0", inline = False)
-    embed.add_field(name="Most Goals of all time", value="Player - 0", inline = False)
+    embed.add_field(name="Most Goals of all time", value="Mhmm Yeeesss - 21", inline = False)
     embed.add_field(name="Most Assists of all time", value="Player - 0", inline = False)
     embed.set_thumbnail(url="https://media.discordapp.net/attachments/443418563160571944/443423107215261697/Feed_Me_Bonk_League.png?width=462&height=420")
     await client.say(embed=embed)
