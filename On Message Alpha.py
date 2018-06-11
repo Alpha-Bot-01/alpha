@@ -12,12 +12,16 @@ client = commands.Bot(command_prefix = "-")
 
 @client.event
 async def on_ready():
-    print("Bot is ready!")
+    print('Logged in as')
+    print(client.user.name)
+    print(client.user.id)
+    print('------')
 
 def wiki_summary(arg):
 	definition = wikipedia.summary(arg, sentences=1, chars=100, 
 	auto_suggest=True, redirect=True)
 	return definition	
+		
 		
 		
 @client.event
@@ -42,25 +46,25 @@ async def on_message(message):
 		if message.content[5:] =="":
 			await client.send_message(message.channel, "Invalid, Choose rock/paper/scissors.")		
 		elif answers == 1 and 'rock' in a: #rock
-			await client.send_message(message.channel, "ðŸ’Ž | I choose *rock* too! It's a draaaw!")
+			await client.send_message(message.channel, ":large_blue_diamond: | I choose **rock** too! It's a draaaw!")
 		elif answers == 1 and 'paper' in a: #rock
-			await client.send_message(message.channel, "ðŸ’Ž | I choose *rock*! You won and I lost...")	
+			await client.send_message(message.channel, ":large_blue_diamond: | I choose **rock**! You won and I lost...")	
 		elif answers == 1 and 'scissors' in a: #rock
-			await client.send_message(message.channel, "ðŸ’Ž | I choose *rock*! I won and you lost...")
+			await client.send_message(message.channel, ":large_blue_diamond: | I choose **rock**! I won and you lost...")
 			
 		elif answers == 2 and 'rock' in a: #paper
-			await client.send_message(message.channel, "ðŸ“° | I choose *paper*! I won and you lost...")
+			await client.send_message(message.channel, ":newspaper: | I choose **paper**! I won and you lost...")
 		elif answers == 2 and 'paper' in a: #paper
-			await client.send_message(message.channel, "ðŸ“° | I choose *paper* too! It's a draaaw!")	
+			await client.send_message(message.channel, ":newspaper: | I choose **paper** too! It's a draaaw!")	
 		elif answers == 2 and 'scissors' in a: #paper
-			await client.send_message(message.channel, "ðŸ“° | I choose *paper*! You won and I lost...")
+			await client.send_message(message.channel, ":newspaper: | I choose **paper**! You won and I lost...")
 			
 		elif answers == 3 and 'rock' in a: #scissors
-			await client.send_message(message.channel, "âœ‚ | I choose *scissors*! You won and I lost...")
+			await client.send_message(message.channel, ":scissors: | I choose **scissors**! You won and I lost...")
 		elif answers == 3 and 'paper' in a: #scissors
-			await client.send_message(message.channel, "âœ‚ | I choose *scissors*! I won and you lost...")	
+			await client.send_message(message.channel, ":scissors: | I choose **scissors**! I won and you lost...")	
 		elif answers == 3 and 'scissors' in a: #scissors
-			await client.send_message(message.channel, "âœ‚ |I choose *scissors* too! It's a draaaw!")
+			await client.send_message(message.channel, ":scissors: | I choose **scissors** too! It's a draaaw!")
 		
 		else:
 			await client.send_message(message.channel, "Invalid, choose rock/paper/scissors.")	
@@ -71,41 +75,41 @@ async def on_message(message):
 
 	if message.content.upper().startswith('-8BALL'):
 		if message.content[7:] =="":
-			await client.send_message(message.channel, "ðŸŽ± | Missing required argument - question")
+			await client.send_message(message.channel, ":8ball: | Missing required argument - question")
 		else:
 			ans = True
 			while ans:
 				answers = random.randint(1,8)
 				if answers == 1:
-					await client.send_message(message.channel, "ðŸŽ± | It is certain.")
+					await client.send_message(message.channel, ":8ball:| It is certain.")
 					break
     
 				elif answers == 2:
-					await client.send_message(message.channel, "ðŸŽ± | Outlook good.")
+					await client.send_message(message.channel, ":8ball: | Outlook good.")
 					break
     
 				elif answers == 3:
-					await client.send_message(message.channel, "ðŸŽ± | You may rely on it.")
+					await client.send_message(message.channel, ":8ball: | You may rely on it.")
 					break
     
 				elif answers == 4:
-					await client.send_message(message.channel, "ðŸŽ± | NO U!")
+					await client.send_message(message.channel, ":8ball: | NO U!")
 					break
     
 				elif answers == 5:
-					await client.send_message(message.channel, "ðŸŽ± | Concentrate and ask again.")
+					await client.send_message(message.channel, ":8ball: | Concentrate and ask again.")
 					break
     
 				elif answers == 6:
-					await client.send_message(message.channel, "ðŸŽ± | Reply hazy, try again.")
+					await client.send_message(message.channel, ":8ball: | Reply hazy, try again.")
 					break
     
 				elif answers == 7:
-					await client.send_message(message.channel, "ðŸŽ± | My reply is no.")
+					await client.send_message(message.channel, ":8ball: | My reply is no.")
 					break
     
 				elif answers == 8:
-					await client.send_message(message.channel, "ðŸŽ± | My sources say no.")
+					await client.send_message(message.channel, ":8ball: | My sources say no.")
 					break
 		
 		
@@ -141,7 +145,7 @@ async def on_message(message):
 		
 		
 		
-	if message.content.startswith('Hi'):
+	if message.content.upper().startswith('HI'):
 		await client.send_message(message.channel, "Hello {0.author.mention}!".format(message))
 		
 		
@@ -183,7 +187,7 @@ async def on_message(message):
 		await client.send_message(message.channel, embed=embed)
 	
 	if message.content.startswith('-help') and message.content[5:] =="": 
-		embed = discord.Embed(title=":scroll:__Feed Me Bot Help__",description='', color=0xFF8C00)
+		embed = discord.Embed(title=":scroll:__BFL Bot Help__",description='', color=0xFF8C00)
 		embed.add_field(name="-help all", value="Shows the help message for all the categories.", inline=False)
 		embed.add_field(name="-help general", value="Shows the general commands.", inline=False)
 		embed.add_field(name="-help games", value="Shows all commands related to the games.", inline=False)
@@ -236,17 +240,17 @@ async def on_message(message):
 		if message.content[9:] =="":
 			await client.send_message(message.channel, 'Error. Type in a suggestion.')
 		else:
-			await client.send_message(message.channel, ':white_check_mark: | {0.author.mention} Your suggestion has been sent succesfully.'.format(message))
+			await client.send_message(message.channel, ':white_check_mark: | {0.author.mention} Your suggestion has been sent succesfully. \n Go upvoting your suggestion in <#443064835664773120>!'.format(message))
 			args = message.content.split(" ")		
-			channel=client.get_channel('438305042559402009')
+			channel=client.get_channel('443064835664773120')
 			
 			embed = discord.Embed(title='', color=0xFFFF00)
 			embed.add_field(name="__Suggestion__", value= "```%s```" % (" ".join(args[1:])), inline=False)
 			embed.add_field(name="By", value="{0.author.mention}".format(message), inline=False)
 			embed.set_thumbnail(url='https://openclipart.org/image/2400px/svg_to_png/10515/yves-guillou-idea.png')
 			a=await client.send_message(channel, embed=embed)
-			await client.add_reaction(a, "âœ…")
-			await client.add_reaction(a, "â›”")
+			await client.add_reaction(a, "ðŸ‘")
+			await client.add_reaction(a, "ðŸ‘Ž")
 			
 			
 	if message.content.upper().startswith('-KILL'):
@@ -259,17 +263,5 @@ async def on_message(message):
 			m=secure_random.choice(list)		
 			await client.send_message(message.channel, m)			
 					
-
-		a=message.content[6:]
-		if a == "":
-			await client.send_message(message.channel, "Error.")
-		else:
-			list = ["{0.author.mention}".format(message) + " rips out " + a + "'s head and starts devouring on his brain cells." , "{0.author.mention}".format(message) + " decided to go to a dance party where his rival " + a + " was at. Later on, " + a +" said: 'I fucking hate this party' and " + "{0.author.mention}".format(message) + " shot him down in plain sight." , "{0.author.mention}".format(message) + " sent " + a+ "to the Sahara desert where " + a + " slowly starved to death." , "{0.author.mention}".format(message) + " found The Hammer of Thor, which explains why " +a+" became toast." , "{0.author.mention}".format(message) + " found a cancer pill, which explains how "+a+ " got cancer." , "{0.author.mention}".format(message) + " had prayed many nights to Poseidon to kill his/her mortal enemy, but he/she never thought he would send a ravenous sharknado to eat "+a+ " and their family! (and a few neighbors too)" , "{0.author.mention}".format(message) + " drowned "+a+ " in a freezing bathtub." , "{0.author.mention}".format(message) + " ordered his pet to attack " + a, "{0.author.mention}".format(message) +" Found a wand and casted 'EXPLODE' spell on " + a, "{0.author.mention}".format(message) + " pushed "+a+" into an active volcano. " , "{0.author.mention}".format(message) + " blindfolded " +a+" and took him/her to gym to kill him/her with a shotgun! " , "{0.author.mention}".format(message) +" has a particular proclivity for pyrotechnics and puts it to good use by strapping " +a+ " to a large rocket and sending him/her straight to the moon. " , "{0.author.mention}".format(message) +" shot " +a+ " with a *lazer gun*, but killed himself/herself due to the backfire." , "{0.author.mention}".format(message)+" threw "+a+" off a bridge." , "{0.author.mention}".format(message)+" helped "+ a +" fix a broken paintball gun, just to kill " + a + " with it."] 
-			secure_random = random.SystemRandom()
-			m=secure_random.choice(list)		
-			await client.send_message(message.channel, m)
-								
-					
-					
 		
-client.run("NDQzMDczNzMyMTg2MDc5MjM1.DdIETg._dnErZuMYPs9zWGVhMVOPOF7i6Q")
+client.run("Mzk2NDU4MTA4OTg3MjQ0NTYz.Dd4QJg.NQa0nFp4EXk-aq9J5bMS2KDdxbU")
